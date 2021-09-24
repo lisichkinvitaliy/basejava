@@ -13,10 +13,8 @@ public class ArrayStorage {
 
 
     public void clear() {
-        for (int i = 0; i < size; i++) {
-            storage[i] = null;
-            size = 0;
-        }
+        Arrays.fill(storage, 0,size, null);
+        size = 0;
     }
 
     public void save(Resume r) {
@@ -72,9 +70,7 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     public Resume[] getAll() {
-        Resume[] allResume = new Resume[size];
-        System.arraycopy(storage, 0, allResume, 0, allResume.length);
-        return allResume;
+       return  Arrays.copyOfRange(storage, 0, size);
     }
 
     public int size() {
